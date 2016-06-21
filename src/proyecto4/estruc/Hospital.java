@@ -5,7 +5,8 @@
  */
 package proyecto4.estruc;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class Hospital {
 
-    public Hospital(String nombre, String direccion, int capParamedicos, int capAmbulancias, char ranking) {
+    public Hospital(String nombre, String direccion, int capParamedicos, int capAmbulancias, int ranking) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.capParamedicos = capParamedicos;
@@ -56,11 +57,11 @@ public class Hospital {
         this.capAmbulancias = capAmbulancias;
     }
 
-    public char getRanking() {
+    public int getRanking() {
         return ranking;
     }
 
-    public void setRanking(char ranking) {
+    public void setRanking(int ranking) {
         this.ranking = ranking;
     }
     
@@ -69,7 +70,23 @@ public class Hospital {
         return nombre;
     }
     public String nombre, direccion;
-    public int capParamedicos, capAmbulancias;
-    public char ranking;
-    public List<Paramedico> paramedicos;
+    public int capParamedicos, capAmbulancias, ranking;
+
+    public PriorityQueue<Paramedico> getParamedicos() {
+        return paramedicos;
+    }
+
+    public void setParamedicos(PriorityQueue<Paramedico> paramedicos) {
+        this.paramedicos = paramedicos;
+    }
+
+    public ArrayList<Ambulancia> getAmbulancias() {
+        return ambulancias;
+    }
+
+    public void setAmbulancias(ArrayList<Ambulancia> ambulancias) {
+        this.ambulancias = ambulancias;
+    }
+    public PriorityQueue<Paramedico> paramedicos;
+    public ArrayList<Ambulancia>ambulancias;
 }

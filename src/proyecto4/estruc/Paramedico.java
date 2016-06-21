@@ -9,17 +9,16 @@ package proyecto4.estruc;
  *
  * @author Christian
  */
-public class Paramedico {
+public class Paramedico implements Comparable<Paramedico> {
 
     public Paramedico() {
     }
 
-    public Paramedico(String nombre, int edad, int identidad, char ranking, Hospital hospital) {
+    public Paramedico(String nombre, int edad, int identidad, Ranking ranking) {
         this.nombre = nombre;
         this.edad = edad;
         this.identidad = identidad;
         this.ranking = ranking;
-        this.hospital = hospital;
     }
 
     public String getNombre() {
@@ -46,28 +45,25 @@ public class Paramedico {
         this.identidad = identidad;
     }
 
-    public char getRanking() {
+    public Ranking getRanking() {
         return ranking;
     }
 
-    public void setRanking(char ranking) {
+    public void setRanking(Ranking ranking) {
         this.ranking = ranking;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
-    }
-
-    public void setHospital(Hospital hospital) {
-        this.hospital = hospital;
     }
 
     @Override
     public String toString() {
         return nombre;
     }
+    
+    @Override
+    public int compareTo(Paramedico otro) {	 
+        return this.ranking.compareTo(otro.ranking);	 
+    }
+
     public String nombre;
-    public int edad, identidad;
-    public char ranking;
-    public Hospital hospital;
+    public int edad, identidad; 
+    public Ranking ranking;
 }
