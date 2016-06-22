@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
  */
 public class Hospital {
 
-    public Hospital(String nombre, String direccion, int capParamedicos, int capAmbulancias, int ranking) {
+    public Hospital(String nombre, String direccion, int capParamedicos, int capAmbulancias, String ranking) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.capParamedicos = capParamedicos;
@@ -57,11 +57,11 @@ public class Hospital {
         this.capAmbulancias = capAmbulancias;
     }
 
-    public int getRanking() {
+    public String getRanking() {
         return ranking;
     }
 
-    public void setRanking(int ranking) {
+    public void setRanking(String ranking) {
         this.ranking = ranking;
     }
     
@@ -85,8 +85,8 @@ public class Hospital {
     public void setAmbulancias(ArrayList<Ambulancia> ambulancias) {
         this.ambulancias = ambulancias;
     }
-    public String nombre, direccion;
-    public int capParamedicos, capAmbulancias, ranking;
+    public String nombre, direccion, ranking;
+    public int capParamedicos, capAmbulancias;
     public PriorityQueue<Paramedico> paramedicos;
     public ArrayList<Ambulancia>ambulancias;
 }

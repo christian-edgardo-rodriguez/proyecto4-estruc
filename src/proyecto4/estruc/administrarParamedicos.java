@@ -50,11 +50,11 @@ public class administrarParamedicos {
             bw= new BufferedWriter(fw);
             for(Hospital hospital:listaHospitales){
                 bw.write(hospital.getNombre()+":");              
-                for(int i=0; i<listaHospitales.get(i).getParamedicos().size(); i++){
-                    bw.write(hospital.getParamedicos().peek().getNombre()+";");
-                    bw.write(hospital.getParamedicos().peek().getEdad()+";");
-                    bw.write(hospital.getParamedicos().peek().getIdentidad()+";");
-                    bw.write(hospital.getParamedicos().peek().getRanking()+";");
+                for(Paramedico paramedico:listaParamedicos){
+                    bw.write(paramedico.getNombre()+";");
+                    bw.write(paramedico.getEdad()+";");
+                    bw.write(paramedico.getIdentidad()+";");
+                    bw.write(paramedico.getRanking()+";");
                 }
                 bw.newLine();
             }

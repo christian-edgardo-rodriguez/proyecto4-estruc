@@ -58,19 +58,6 @@ public class administrarHospitales {
                 bw.write(hospital.getCapParamedicos()+";");
                 bw.write(hospital.getCapAmbulancias()+";");
                 bw.write(hospital.getRanking()+";");
-                bw.write("Paramedicos: ");
-                for(int i=0; i<listaHospitales.get(i).getParamedicos().size(); i++){
-                    bw.write(hospital.getParamedicos().peek().getNombre()+":");
-                    bw.write(hospital.getParamedicos().peek().getEdad()+":");
-                    bw.write(hospital.getParamedicos().peek().getIdentidad()+":");
-                    bw.write(hospital.getParamedicos().peek().getRanking()+":");
-                }
-                bw.write("Ambulancias: ");
-                for(int i=0; i<listaHospitales.get(i).getAmbulancias().size(); i++){
-                    bw.write(hospital.getAmbulancias().get(i).getNumero()+".");
-                    bw.write(hospital.getAmbulancias().get(i).getAño()+".");
-                    bw.write(hospital.getAmbulancias().get(i).getVelocidadMaxima()+".");
-                }
                 bw.newLine();
             }
             bw.flush();
@@ -95,7 +82,7 @@ public class administrarHospitales {
             input.useDelimiter(";");
             while(input.hasNext()){
                 listaHospitales.add(new Hospital(input.next(),input.next()
-                        ,input.nextInt(),input.nextInt(),input.nextInt()));
+                        ,input.nextInt(),input.nextInt(),input.next()));
             }
         } catch (Exception e) {
             e.printStackTrace();
