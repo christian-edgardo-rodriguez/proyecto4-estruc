@@ -15,9 +15,8 @@ import java.util.Scanner;
  *
  * @author Christian
  */
-public class administrarHospitales {
-    
-    public administrarHospitales(String path) {
+public class administrarAmbulancias {
+    public administrarAmbulancias(String path) {
         archivo=new File(path);
     }
 
@@ -42,10 +41,6 @@ public class administrarHospitales {
         return "listaHospitales=" + listaHospitales;
     }
     
-    public void setHospital(Hospital hospital){
-        this.listaHospitales.add(hospital);
-    }
-    
     public void escribirArchivo(){
         FileWriter fw=null;
         BufferedWriter bw=null;
@@ -54,18 +49,6 @@ public class administrarHospitales {
             bw= new BufferedWriter(fw);
             for(Hospital hospital:listaHospitales){
                 bw.write(hospital.getNombre()+";");
-                bw.write(hospital.getDireccion()+";");
-                bw.write(hospital.getCapParamedicos()+";");
-                bw.write(hospital.getCapAmbulancias()+";");
-                bw.write(hospital.getRanking()+";");
-                bw.write("Paramedicos: ");
-                for(int i=0; i<listaHospitales.get(i).getParamedicos().size(); i++){
-                    bw.write(hospital.getParamedicos().peek().getNombre()+":");
-                    bw.write(hospital.getParamedicos().peek().getEdad()+":");
-                    bw.write(hospital.getParamedicos().peek().getIdentidad()+":");
-                    bw.write(hospital.getParamedicos().peek().getRanking()+":");
-                }
-                bw.write("Ambulancias: ");
                 for(int i=0; i<listaHospitales.get(i).getAmbulancias().size(); i++){
                     bw.write(hospital.getAmbulancias().get(i).getNumero()+".");
                     bw.write(hospital.getAmbulancias().get(i).getAño()+".");
@@ -89,13 +72,12 @@ public class administrarHospitales {
     
     public void cargarArchivo(){
         Scanner input=null;
-        listaHospitales=new ArrayList();
+        listaAmbulancias=new ArrayList();
         try {
             input=new Scanner(archivo);
             input.useDelimiter(";");
             while(input.hasNext()){
-                listaHospitales.add(new Hospital(input.next(),input.next()
-                        ,input.nextInt(),input.nextInt(),input.nextInt()));
+                listaAmbulancias.add(new Ambulancia(input.nextInt(),input.nextInt(),input.nextInt()));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,6 +86,15 @@ public class administrarHospitales {
             input.close();
         }
     }
+
+    public ArrayList<Ambulancia> getListaAmbulancias() {
+        return listaAmbulancias;
+    }
+
+    public void setListaAmbulancias(ArrayList<Ambulancia> listaAmbulancias) {
+        this.listaAmbulancias = listaAmbulancias;
+    }
     private ArrayList<Hospital>listaHospitales=new ArrayList();
+    private ArrayList<Ambulancia>listaAmbulancias=new ArrayList();
     private File archivo=null;
 }

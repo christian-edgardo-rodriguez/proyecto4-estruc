@@ -15,9 +15,8 @@ import java.util.Scanner;
  *
  * @author Christian
  */
-public class administrarHospitales {
-    
-    public administrarHospitales(String path) {
+public class administrarParamedicos {
+    public administrarParamedicos(String path) {
         archivo=new File(path);
     }
 
@@ -42,9 +41,6 @@ public class administrarHospitales {
         return "listaHospitales=" + listaHospitales;
     }
     
-    public void setHospital(Hospital hospital){
-        this.listaHospitales.add(hospital);
-    }
     
     public void escribirArchivo(){
         FileWriter fw=null;
@@ -53,23 +49,12 @@ public class administrarHospitales {
             fw= new FileWriter(archivo,false);
             bw= new BufferedWriter(fw);
             for(Hospital hospital:listaHospitales){
-                bw.write(hospital.getNombre()+";");
-                bw.write(hospital.getDireccion()+";");
-                bw.write(hospital.getCapParamedicos()+";");
-                bw.write(hospital.getCapAmbulancias()+";");
-                bw.write(hospital.getRanking()+";");
-                bw.write("Paramedicos: ");
+                bw.write(hospital.getNombre()+":");              
                 for(int i=0; i<listaHospitales.get(i).getParamedicos().size(); i++){
-                    bw.write(hospital.getParamedicos().peek().getNombre()+":");
-                    bw.write(hospital.getParamedicos().peek().getEdad()+":");
-                    bw.write(hospital.getParamedicos().peek().getIdentidad()+":");
-                    bw.write(hospital.getParamedicos().peek().getRanking()+":");
-                }
-                bw.write("Ambulancias: ");
-                for(int i=0; i<listaHospitales.get(i).getAmbulancias().size(); i++){
-                    bw.write(hospital.getAmbulancias().get(i).getNumero()+".");
-                    bw.write(hospital.getAmbulancias().get(i).getAño()+".");
-                    bw.write(hospital.getAmbulancias().get(i).getVelocidadMaxima()+".");
+                    bw.write(hospital.getParamedicos().peek().getNombre()+";");
+                    bw.write(hospital.getParamedicos().peek().getEdad()+";");
+                    bw.write(hospital.getParamedicos().peek().getIdentidad()+";");
+                    bw.write(hospital.getParamedicos().peek().getRanking()+";");
                 }
                 bw.newLine();
             }
@@ -89,13 +74,13 @@ public class administrarHospitales {
     
     public void cargarArchivo(){
         Scanner input=null;
-        listaHospitales=new ArrayList();
+        listaParamedicos=new ArrayList();
         try {
             input=new Scanner(archivo);
             input.useDelimiter(";");
             while(input.hasNext()){
-                listaHospitales.add(new Hospital(input.next(),input.next()
-                        ,input.nextInt(),input.nextInt(),input.nextInt()));
+                /*listaParamedicos.add(new Paramedico(input.next(),input.nextInt()
+                        ,input.nextInt(),input.next()));*/
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,6 +89,16 @@ public class administrarHospitales {
             input.close();
         }
     }
-    private ArrayList<Hospital>listaHospitales=new ArrayList();
+    
+    public ArrayList<Paramedico> getListaParamedicos() {
+        return listaParamedicos;
+    }
+
+    public void setListaParamedicos(ArrayList<Paramedico> listaParamedicos) {
+        this.listaParamedicos = listaParamedicos;
+    }
+    
+    private ArrayList<Hospital>listaHospitales=new ArrayList();    
+    private ArrayList<Paramedico>listaParamedicos=new ArrayList();
     private File archivo=null;
 }

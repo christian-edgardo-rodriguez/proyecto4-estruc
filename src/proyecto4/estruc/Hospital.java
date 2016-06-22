@@ -69,8 +69,6 @@ public class Hospital {
     public String toString() {
         return nombre;
     }
-    public String nombre, direccion;
-    public int capParamedicos, capAmbulancias, ranking;
 
     public PriorityQueue<Paramedico> getParamedicos() {
         return paramedicos;
@@ -87,6 +85,8 @@ public class Hospital {
     public void setAmbulancias(ArrayList<Ambulancia> ambulancias) {
         this.ambulancias = ambulancias;
     }
+    public String nombre, direccion;
+    public int capParamedicos, capAmbulancias, ranking;
     public PriorityQueue<Paramedico> paramedicos;
     public ArrayList<Ambulancia>ambulancias;
 }

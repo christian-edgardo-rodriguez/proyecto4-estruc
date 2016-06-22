@@ -6,6 +6,8 @@
 package proyecto4.estruc;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +22,8 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         adminHospital.cargarArchivo();
+        adminParamedico.cargarArchivo();
+        adminAmbulancia.cargarArchivo();
     }
 
     /**
@@ -31,11 +35,273 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_hospital = new javax.swing.JDialog();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        agregar_hospitales = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        tf_nombre_hospital = new javax.swing.JTextField();
+        tf_direccion_hospital = new javax.swing.JTextField();
+        tf_maxParamedicos_hospital = new javax.swing.JTextField();
+        tf_maxAmbulancias_hospital = new javax.swing.JTextField();
+        cb_ranking_hospital = new javax.swing.JComboBox();
+        jd_eliminar_hospitales = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        cb_elim_hospital = new javax.swing.JComboBox();
+        jButton8 = new javax.swing.JButton();
+        jd_agregar_paramedicos = new javax.swing.JDialog();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        tf_nombre_paramedico = new javax.swing.JTextField();
+        tf_edad_paramedico = new javax.swing.JTextField();
+        tf_identidad_paramedico = new javax.swing.JTextField();
+        cb_ranking_paramedico = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+
+        jButton6.setText("Agregar Hospital");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Eliminar Hospital");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_hospitalLayout = new javax.swing.GroupLayout(jd_hospital.getContentPane());
+        jd_hospital.getContentPane().setLayout(jd_hospitalLayout);
+        jd_hospitalLayout.setHorizontalGroup(
+            jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_hospitalLayout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addGroup(jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7)
+                    .addComponent(jButton6))
+                .addGap(140, 140, 140))
+        );
+        jd_hospitalLayout.setVerticalGroup(
+            jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_hospitalLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jButton6)
+                .addGap(41, 41, 41)
+                .addComponent(jButton7)
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+
+        jLabel2.setText("Agregar Hospital");
+
+        jLabel3.setText("Nombre");
+
+        jLabel4.setText("Direccion");
+
+        jLabel5.setText("Capacidad Maxima de Paramedicos");
+
+        jLabel6.setText("Capacidad Maxima de Ambulancias");
+
+        jLabel7.setText("Ranking");
+
+        jButton5.setText("Agregar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        cb_ranking_hospital.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D" }));
+
+        javax.swing.GroupLayout agregar_hospitalesLayout = new javax.swing.GroupLayout(agregar_hospitales.getContentPane());
+        agregar_hospitales.getContentPane().setLayout(agregar_hospitalesLayout);
+        agregar_hospitalesLayout.setHorizontalGroup(
+            agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel3))
+                                .addGap(60, 60, 60)
+                                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_nombre_hospital)
+                                    .addComponent(tf_direccion_hospital)
+                                    .addComponent(tf_maxParamedicos_hospital)
+                                    .addComponent(tf_maxAmbulancias_hospital)
+                                    .addComponent(cb_ranking_hospital, 0, 110, Short.MAX_VALUE)))
+                            .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jLabel2))))
+                    .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jButton5)))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        agregar_hospitalesLayout.setVerticalGroup(
+            agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(agregar_hospitalesLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_nombre_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_direccion_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_maxParamedicos_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_maxAmbulancias_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(agregar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(cb_ranking_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jd_eliminar_hospitales.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                jd_eliminar_hospitalesWindowOpened(evt);
+            }
+        });
+
+        jLabel8.setText("Eliiminar Hospitales");
+
+        jButton8.setText("Eliminar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminar_hospitalesLayout = new javax.swing.GroupLayout(jd_eliminar_hospitales.getContentPane());
+        jd_eliminar_hospitales.getContentPane().setLayout(jd_eliminar_hospitalesLayout);
+        jd_eliminar_hospitalesLayout.setHorizontalGroup(
+            jd_eliminar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminar_hospitalesLayout.createSequentialGroup()
+                .addGroup(jd_eliminar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_hospitalesLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel8))
+                    .addGroup(jd_eliminar_hospitalesLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jButton8))
+                    .addGroup(jd_eliminar_hospitalesLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(cb_elim_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        jd_eliminar_hospitalesLayout.setVerticalGroup(
+            jd_eliminar_hospitalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminar_hospitalesLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel8)
+                .addGap(41, 41, 41)
+                .addComponent(cb_elim_hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jButton8)
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+
+        jLabel9.setText("Agregar Paramedicos");
+
+        jLabel10.setText("Nombre");
+
+        jLabel11.setText("Edad");
+
+        jLabel12.setText("Identidad");
+
+        jLabel13.setText("Ranking");
+
+        jButton9.setText("Agregar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        cb_ranking_paramedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D" }));
+
+        javax.swing.GroupLayout jd_agregar_paramedicosLayout = new javax.swing.GroupLayout(jd_agregar_paramedicos.getContentPane());
+        jd_agregar_paramedicos.getContentPane().setLayout(jd_agregar_paramedicosLayout);
+        jd_agregar_paramedicosLayout.setHorizontalGroup(
+            jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addGap(26, 26, 26)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton9)
+                            .addComponent(tf_nombre_paramedico)
+                            .addComponent(tf_edad_paramedico)
+                            .addComponent(tf_identidad_paramedico)
+                            .addComponent(cb_ranking_paramedico, 0, 110, Short.MAX_VALUE))))
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+        jd_agregar_paramedicosLayout.setVerticalGroup(
+            jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tf_nombre_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_edad_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_identidad_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(cb_ranking_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jButton9)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -47,8 +313,18 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Simulador de Hospitales");
 
         jButton1.setText("Hospitales");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Paramedicos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Ambulancias");
 
@@ -67,8 +343,8 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton3)
-                        .addGap(31, 31, 31))))
+                        .addComponent(jButton3)))
+                .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(jLabel1)
@@ -94,7 +370,83 @@ public class Principal extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         adminHospital.escribirArchivo();
+        adminParamedico.escribirArchivo();
+        adminAmbulancia.escribirArchivo();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.jd_hospital.setModal(true);
+        this.jd_hospital.pack();
+        this.jd_hospital.setLocationRelativeTo(this);
+        this.jd_hospital.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.agregar_hospitales.setModal(true);
+        this.agregar_hospitales.pack();
+        this.agregar_hospitales.setLocationRelativeTo(this);
+        this.agregar_hospitales.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        adminHospital.getListaHospitales().add(new Hospital(this.tf_nombre_hospital.getText(),this.tf_direccion_hospital.getText()
+                ,Integer.parseInt(this.tf_maxParamedicos_hospital.getText())
+                ,Integer.parseInt(this.tf_maxAmbulancias_hospital.getText())
+                ,Integer.parseInt(this.cb_ranking_hospital.getSelectedItem().toString())));
+        this.tf_nombre_hospital.setText("");
+        this.tf_direccion_hospital.setText("");
+        this.tf_maxParamedicos_hospital.setText("");
+        this.tf_maxAmbulancias_hospital.setText("");
+        this.cb_ranking_hospital.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(this, "El hospital se ha agregado. ");
+        this.jd_hospital.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jd_eliminar_hospitalesWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_eliminar_hospitalesWindowOpened
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_elim_hospital.getModel();
+        for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+            modelo.addElement(adminHospital.getListaHospitales().get(i).getNombre());
+            cb_elim_hospital.setModel(modelo);
+        }
+    }//GEN-LAST:event_jd_eliminar_hospitalesWindowOpened
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        int seguro=JOptionPane.showConfirmDialog(this, "Esta seguro de que quiere borrar este hospital?");
+        if (seguro==JOptionPane.YES_OPTION) {
+            DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_elim_hospital.getModel();
+            int posicion=modelo.getIndexOf(modelo.getSelectedItem());
+            modelo.removeElement(modelo.getSelectedItem());
+            adminHospital.getListaHospitales().remove(posicion);
+            JOptionPane.showMessageDialog(this, "El hospital ha sido eliminado.");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.jd_agregar_paramedicos.setModal(true);
+        this.jd_agregar_paramedicos.pack();
+        this.jd_agregar_paramedicos.setLocationRelativeTo(this);
+        this.jd_agregar_paramedicos.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        adminParamedico.getListaParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
+                ,Integer.parseInt(this.tf_edad_paramedico.getText())
+                ,Integer.parseInt(this.tf_identidad_paramedico.getText())
+                ,(Ranking)this.cb_ranking_hospital.getSelectedItem()));
+        this.tf_nombre_paramedico.setText("");
+        this.tf_edad_paramedico.setText("");
+        this.tf_identidad_paramedico.setText("");
+        this.cb_ranking_paramedico.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(this, "El paramedico se ha agregado. ");
+        this.jd_agregar_paramedicos.dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.jd_eliminar_hospitales.setModal(true);
+        this.jd_eliminar_hospitales.pack();
+        this.jd_eliminar_hospitales.setLocationRelativeTo(this);
+        this.jd_eliminar_hospitales.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,12 +484,45 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog agregar_hospitales;
+    private javax.swing.JComboBox cb_elim_hospital;
+    private javax.swing.JComboBox cb_ranking_hospital;
+    private javax.swing.JComboBox cb_ranking_paramedico;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JDialog jd_agregar_paramedicos;
+    private javax.swing.JDialog jd_eliminar_hospitales;
+    private javax.swing.JDialog jd_hospital;
+    private javax.swing.JTextField tf_direccion_hospital;
+    private javax.swing.JTextField tf_edad_paramedico;
+    private javax.swing.JTextField tf_identidad_paramedico;
+    private javax.swing.JTextField tf_maxAmbulancias_hospital;
+    private javax.swing.JTextField tf_maxParamedicos_hospital;
+    private javax.swing.JTextField tf_nombre_hospital;
+    private javax.swing.JTextField tf_nombre_paramedico;
     // End of variables declaration//GEN-END:variables
 ArrayList<Hospital>hospitales=new ArrayList();
 administrarHospitales adminHospital= new administrarHospitales("./hospitales.txt");
+administrarParamedicos adminParamedico= new administrarParamedicos("./paramedicos.txt");
+administrarAmbulancias adminAmbulancia= new administrarAmbulancias("./ambulancias.txt");
 }
