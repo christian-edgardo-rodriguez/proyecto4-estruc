@@ -939,34 +939,27 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        int posicion=this.cb_agregarHospital_paramedico.getSelectedIndex();
-        if (adminHospital.getListaHospitales().get(posicion).getParamedicos().size()<
-                adminHospital.getListaHospitales().get(posicion).getCapParamedicos()) {
-                adminParamedico.getListaParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
-                    ,Integer.parseInt(this.tf_edad_paramedico.getText())
-                    ,Integer.parseInt(this.tf_identidad_paramedico.getText())
-                    ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
-                    ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
-            String nombreHospital = this.cb_agregarHospital_paramedico.getSelectedItem().toString();
-            for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
-                if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
-                    adminHospital.getListaHospitales().get(i).getParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
-                    ,Integer.parseInt(this.tf_edad_paramedico.getText())
-                    ,Integer.parseInt(this.tf_identidad_paramedico.getText())
-                    ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
-                    ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
-                }
+        adminParamedico.getListaParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
+            ,Integer.parseInt(this.tf_edad_paramedico.getText())
+            ,Integer.parseInt(this.tf_identidad_paramedico.getText())
+            ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
+            ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
+        String nombreHospital = this.cb_agregarHospital_paramedico.getSelectedItem().toString();
+        for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+            if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
+                adminHospital.getListaHospitales().get(i).getParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
+                ,Integer.parseInt(this.tf_edad_paramedico.getText())
+                ,Integer.parseInt(this.tf_identidad_paramedico.getText())
+                ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
+                ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
             }
-            this.tf_nombre_paramedico.setText("");
-            this.tf_edad_paramedico.setText("");
-            this.tf_identidad_paramedico.setText("");
-            this.cb_ranking_paramedico.setSelectedIndex(0);
-            JOptionPane.showMessageDialog(this, "El paramedico se ha agregado. ");
-            this.jd_agregar_paramedicos.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Se ha llegado al limite de paramedicos. ");
-            this.jd_agregar_paramedicos.dispose();
-        } 
+        }
+        this.tf_nombre_paramedico.setText("");
+        this.tf_edad_paramedico.setText("");
+        this.tf_identidad_paramedico.setText("");
+        this.cb_ranking_paramedico.setSelectedIndex(0);
+        JOptionPane.showMessageDialog(this, "El paramedico se ha agregado. ");
+        this.jd_agregar_paramedicos.dispose(); 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -991,33 +984,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        int posicion=this.cb_agregarHospital_ambulancia.getSelectedIndex();
-        if ((!adminHospital.getListaHospitales().get(posicion).getAmbulancias().isEmpty()&&
-                adminHospital.getListaHospitales().get(posicion).getAmbulancias().size()<=
-                adminHospital.getListaHospitales().get(posicion).getCapAmbulancias())
-                ||adminHospital.getListaHospitales().get(posicion).getAmbulancias().isEmpty()) {
-                adminAmbulancia.getListaAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
-                    ,Integer.parseInt(this.tf_año_ambulancia.getText())
-                    ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
-                    ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
-            String nombreHospital = this.cb_agregarHospital_ambulancia.getSelectedItem().toString();
-            for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
-                if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
-                    adminHospital.getListaHospitales().get(i).getAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
-                    ,Integer.parseInt(this.tf_año_ambulancia.getText())
-                    ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
-                    ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
-                }
+        adminAmbulancia.getListaAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
+            ,Integer.parseInt(this.tf_año_ambulancia.getText())
+            ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
+            ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
+        String nombreHospital = this.cb_agregarHospital_ambulancia.getSelectedItem().toString();
+        for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+            if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
+                adminHospital.getListaHospitales().get(i).getAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
+                ,Integer.parseInt(this.tf_año_ambulancia.getText())
+                ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
+                ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
             }
-            this.tf_numero_ambulancia.setText("");
-            this.tf_año_ambulancia.setText("");
-            this.tf_velocidadMax_ambulancia.setText("");
-            JOptionPane.showMessageDialog(this, "La ambulancia se ha agregado. ");
-            this.jd_agregar_ambulancias.dispose();
-        }else{
-            JOptionPane.showMessageDialog(this, "Se ha llegado al limite de ambulancias. ");
-            this.jd_agregar_ambulancias.dispose();
         }
+        this.tf_numero_ambulancia.setText("");
+        this.tf_año_ambulancia.setText("");
+        this.tf_velocidadMax_ambulancia.setText("");
+        JOptionPane.showMessageDialog(this, "La ambulancia se ha agregado. ");
+        this.jd_agregar_ambulancias.dispose();
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
