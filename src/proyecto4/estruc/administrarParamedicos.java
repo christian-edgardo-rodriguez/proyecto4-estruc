@@ -77,8 +77,8 @@ public class administrarParamedicos {
             input=new Scanner(archivo);
             input.useDelimiter(";");
             while(input.hasNext()){
-                /*listaParamedicos.add(new Paramedico(input.next(),input.nextInt()
-                        ,input.nextInt(),input.next(),input.next()));*/
+                listaParamedicos.add(new Paramedico(input.next(),input.nextInt()
+                        ,input.nextInt(),Ranking.valueOf(input.next()),input.next()));
             }
         } catch (Exception e) {
             e.printStackTrace();

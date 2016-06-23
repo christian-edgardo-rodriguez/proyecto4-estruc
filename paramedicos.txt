@@ -1,0 +1,4 @@
+axsca;2589;3658;A;yay;
+casas;256;3396;A;yay;
+cmasj;589;3254;A;yay;
+mopix;189;3658;A;yay;
