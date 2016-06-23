@@ -14,10 +14,11 @@ public class Ambulancia {
     public Ambulancia() {
     }
 
-    public Ambulancia(int numero, int año, int velocidadMaxima) {
+    public Ambulancia(int numero, int año, int velocidadMaxima, String hospital) {
         this.numero = numero;
         this.año = año;
         this.velocidadMaxima = velocidadMaxima;
+        this.hospital = hospital;
     }
 
     public int getNumero() {
@@ -50,4 +51,13 @@ public class Ambulancia {
     }
     
     public int numero, año, velocidadMaxima;
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+    public String hospital;
 }

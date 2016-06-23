@@ -48,16 +48,14 @@ public class administrarParamedicos {
         try {
             fw= new FileWriter(archivo,false);
             bw= new BufferedWriter(fw);
-            for(Hospital hospital:listaHospitales){
-                bw.write(hospital.getNombre()+":");              
-                for(Paramedico paramedico:listaParamedicos){
-                    bw.write(paramedico.getNombre()+";");
-                    bw.write(paramedico.getEdad()+";");
-                    bw.write(paramedico.getIdentidad()+";");
-                    bw.write(paramedico.getRanking()+";");
-                }
+            for(Paramedico paramedico:listaParamedicos){
+                bw.write(paramedico.getNombre()+";");
+                bw.write(paramedico.getEdad()+";");
+                bw.write(paramedico.getIdentidad()+";");
+                bw.write(paramedico.getRanking()+";");
+                bw.write(paramedico.getHospital()+";");
                 bw.newLine();
-            }
+            }     
             bw.flush();
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,7 +78,7 @@ public class administrarParamedicos {
             input.useDelimiter(";");
             while(input.hasNext()){
                 /*listaParamedicos.add(new Paramedico(input.next(),input.nextInt()
-                        ,input.nextInt(),input.next()));*/
+                        ,input.nextInt(),input.next(),input.next()));*/
             }
         } catch (Exception e) {
             e.printStackTrace();

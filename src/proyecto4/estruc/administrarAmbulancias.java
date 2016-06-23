@@ -47,15 +47,13 @@ public class administrarAmbulancias {
         try {
             fw= new FileWriter(archivo,false);
             bw= new BufferedWriter(fw);
-            for(Hospital hospital:listaHospitales){
-                bw.write(hospital.getNombre()+".");
-                for(Ambulancia ambulancia:listaAmbulancias){
-                    bw.write(ambulancia.getNumero()+".");
-                    bw.write(ambulancia.getAño()+".");
-                    bw.write(ambulancia.getVelocidadMaxima()+".");
-                }
+            for(Ambulancia ambulancia:listaAmbulancias){
+                bw.write(ambulancia.getNumero()+".");
+                bw.write(ambulancia.getAño()+".");
+                bw.write(ambulancia.getVelocidadMaxima()+".");
+                bw.write(ambulancia.getHospital()+".");
                 bw.newLine();
-            }
+            }  
             bw.flush();
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +75,7 @@ public class administrarAmbulancias {
             input=new Scanner(archivo);
             input.useDelimiter(".");
             while(input.hasNext()){
-                listaAmbulancias.add(new Ambulancia(input.nextInt(),input.nextInt(),input.nextInt()));
+                listaAmbulancias.add(new Ambulancia(input.nextInt(),input.nextInt(),input.nextInt(),input.next()));
             }
         } catch (Exception e) {
             e.printStackTrace();

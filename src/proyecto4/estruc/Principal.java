@@ -5,6 +5,7 @@
  */
 package proyecto4.estruc;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -25,14 +26,14 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        Graph graph = new MultiGraph("Graffo");
-	//tupanel.setVisible(true);
+        initComponents();
+        jp_mapeo.setVisible(true);
         Viewer viewer = graph.display(true);
  	View view = viewer.getDefaultView();
-	//this.tupanel.add((Component) view);
+	this.jp_mapeo.add((Component) view);
 	this.repaint();
-        initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Simulador de Emergencias (Proyecto 4-Estructura de Datos)");
         adminHospital.cargarArchivo();
         adminParamedico.cargarArchivo();
         adminAmbulancia.cargarArchivo();
@@ -78,6 +79,8 @@ public class Principal extends javax.swing.JFrame {
         tf_edad_paramedico = new javax.swing.JTextField();
         tf_identidad_paramedico = new javax.swing.JTextField();
         cb_ranking_paramedico = new javax.swing.JComboBox();
+        jLabel20 = new javax.swing.JLabel();
+        cb_agregarHospital_paramedico = new javax.swing.JComboBox();
         jd_ambulancia = new javax.swing.JDialog();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -96,20 +99,47 @@ public class Principal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         cb_elim_ambulancia = new javax.swing.JComboBox();
         jButton13 = new javax.swing.JButton();
+        jd_mapeo = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jp_mapeo = new javax.swing.JPanel();
+        jd_agregarHospital_mapeo = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        cb_agregarHospital_mapeo = new javax.swing.JComboBox();
+        jButton18 = new javax.swing.JButton();
+        jd_agregarDomicilio_mapeo = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
+        tf_nombre_domicilio = new javax.swing.JTextField();
+        tf_direccion_domicilio = new javax.swing.JTextField();
+        jd_agregarConexion_mapeo = new javax.swing.JDialog();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        cb_conexionInicial = new javax.swing.JComboBox<String>();
+        cb_conexionFinal = new javax.swing.JComboBox<String>();
+        jButton24 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        tf_distancia = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        jButton6.setText("Agregar Hospital");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4/estruc/hospital_318-115635 (agregar).png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Eliminar Hospital");
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4/estruc/prohibido_318-123946.jpg"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -120,21 +150,21 @@ public class Principal extends javax.swing.JFrame {
         jd_hospital.getContentPane().setLayout(jd_hospitalLayout);
         jd_hospitalLayout.setHorizontalGroup(
             jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_hospitalLayout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addGroup(jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6))
-                .addGap(140, 140, 140))
+            .addGroup(jd_hospitalLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(50, 50, 50))
         );
         jd_hospitalLayout.setVerticalGroup(
             jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_hospitalLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jButton6)
-                .addGap(41, 41, 41)
-                .addComponent(jButton7)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(113, 113, 113)
+                .addGroup(jd_hospitalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton7)
+                    .addComponent(jButton6))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Agregar Hospital");
@@ -283,6 +313,8 @@ public class Principal extends javax.swing.JFrame {
 
         cb_ranking_paramedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D" }));
 
+        jLabel20.setText("Hospital a Agregarse");
+
         javax.swing.GroupLayout jd_agregar_paramedicosLayout = new javax.swing.GroupLayout(jd_agregar_paramedicos.getContentPane());
         jd_agregar_paramedicos.getContentPane().setLayout(jd_agregar_paramedicosLayout);
         jd_agregar_paramedicosLayout.setHorizontalGroup(
@@ -290,22 +322,34 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addGap(26, 26, 26)
-                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
                     .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton9)
-                            .addComponent(tf_nombre_paramedico)
-                            .addComponent(tf_edad_paramedico)
-                            .addComponent(tf_identidad_paramedico)
-                            .addComponent(cb_ranking_paramedico, 0, 110, Short.MAX_VALUE))))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(jLabel20)
+                        .addContainerGap())
+                    .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                        .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addGroup(jd_agregar_paramedicosLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jButton9)))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregar_paramedicosLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cb_agregarHospital_paramedico, 0, 110, Short.MAX_VALUE)
+                                    .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tf_nombre_paramedico)
+                                        .addComponent(tf_edad_paramedico)
+                                        .addComponent(tf_identidad_paramedico)
+                                        .addComponent(cb_ranking_paramedico, javax.swing.GroupLayout.Alignment.TRAILING, 0, 110, Short.MAX_VALUE)))
+                                .addGap(79, 79, 79))))))
         );
         jd_agregar_paramedicosLayout.setVerticalGroup(
             jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,19 +372,23 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(cb_ranking_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jd_agregar_paramedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(cb_agregarHospital_paramedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(jButton9)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
 
-        jButton10.setText("Agregar Ambulancia");
+        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\ambulancecar_ambulancia_4663.png")); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Eliminar Ambulancia");
+        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\prohibido_318-123946.jpg")); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -352,20 +400,20 @@ public class Principal extends javax.swing.JFrame {
         jd_ambulanciaLayout.setHorizontalGroup(
             jd_ambulanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ambulanciaLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addGroup(jd_ambulanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton11)
-                    .addComponent(jButton10))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(25, 25, 25))
         );
         jd_ambulanciaLayout.setVerticalGroup(
             jd_ambulanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ambulanciaLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jButton10)
-                .addGap(55, 55, 55)
-                .addComponent(jButton11)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(115, 115, 115)
+                .addGroup(jd_ambulanciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton11)
+                    .addComponent(jButton10))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         jd_agregar_ambulancias.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -491,6 +539,268 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel21.setText("Panel de Mapeo");
+
+        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\hospital_318-115717.png")); // NOI18N
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\plug-powder-cord-two-people-pull-plugs_112698796.jpg")); // NOI18N
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\casa.jpg")); // NOI18N
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("Emergencia");
+
+        jp_mapeo.setPreferredSize(new java.awt.Dimension(900, 600));
+
+        javax.swing.GroupLayout jp_mapeoLayout = new javax.swing.GroupLayout(jp_mapeo);
+        jp_mapeo.setLayout(jp_mapeoLayout);
+        jp_mapeoLayout.setHorizontalGroup(
+            jp_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        jp_mapeoLayout.setVerticalGroup(
+            jp_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_mapeoLayout = new javax.swing.GroupLayout(jd_mapeo.getContentPane());
+        jd_mapeo.getContentPane().setLayout(jd_mapeoLayout);
+        jd_mapeoLayout.setHorizontalGroup(
+            jd_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mapeoLayout.createSequentialGroup()
+                .addGroup(jd_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_mapeoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jp_mapeo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_mapeoLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(jd_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_mapeoLayout.createSequentialGroup()
+                                .addComponent(jButton14)
+                                .addGap(75, 75, 75)
+                                .addComponent(jButton15)
+                                .addGap(61, 61, 61)
+                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_mapeoLayout.createSequentialGroup()
+                                .addGap(279, 279, 279)
+                                .addComponent(jButton17))))
+                    .addGroup(jd_mapeoLayout.createSequentialGroup()
+                        .addGap(350, 350, 350)
+                        .addComponent(jLabel21)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_mapeoLayout.setVerticalGroup(
+            jd_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_mapeoLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jp_mapeo, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton14)
+                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton17)
+                .addGap(0, 182, Short.MAX_VALUE))
+        );
+
+        jd_agregarHospital_mapeo.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                jd_agregarHospital_mapeoWindowOpened(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel22.setText("Agregar Hospital al Mapeo");
+
+        jButton18.setText("Agregar");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_agregarHospital_mapeoLayout = new javax.swing.GroupLayout(jd_agregarHospital_mapeo.getContentPane());
+        jd_agregarHospital_mapeo.getContentPane().setLayout(jd_agregarHospital_mapeoLayout);
+        jd_agregarHospital_mapeoLayout.setHorizontalGroup(
+            jd_agregarHospital_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarHospital_mapeoLayout.createSequentialGroup()
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(119, 119, 119))
+            .addGroup(jd_agregarHospital_mapeoLayout.createSequentialGroup()
+                .addGroup(jd_agregarHospital_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarHospital_mapeoLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(cb_agregarHospital_mapeo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_agregarHospital_mapeoLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jButton18)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_agregarHospital_mapeoLayout.setVerticalGroup(
+            jd_agregarHospital_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarHospital_mapeoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel22)
+                .addGap(45, 45, 45)
+                .addComponent(cb_agregarHospital_mapeo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jButton18)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+
+        jLabel23.setText("Agregar Domicilio al Mapeo");
+
+        jLabel24.setText("Nombre");
+
+        jLabel25.setText("Direccion");
+
+        jButton19.setText("Agregar");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_agregarDomicilio_mapeoLayout = new javax.swing.GroupLayout(jd_agregarDomicilio_mapeo.getContentPane());
+        jd_agregarDomicilio_mapeo.getContentPane().setLayout(jd_agregarDomicilio_mapeoLayout);
+        jd_agregarDomicilio_mapeoLayout.setHorizontalGroup(
+            jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarDomicilio_mapeoLayout.createSequentialGroup()
+                .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarDomicilio_mapeoLayout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel23))
+                    .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_agregarDomicilio_mapeoLayout.createSequentialGroup()
+                            .addGap(90, 90, 90)
+                            .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel24))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                            .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tf_nombre_domicilio)
+                                .addComponent(tf_direccion_domicilio, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_agregarDomicilio_mapeoLayout.createSequentialGroup()
+                            .addGap(159, 159, 159)
+                            .addComponent(jButton19))))
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+        jd_agregarDomicilio_mapeoLayout.setVerticalGroup(
+            jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarDomicilio_mapeoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel23)
+                .addGap(22, 22, 22)
+                .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(tf_nombre_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jd_agregarDomicilio_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(tf_direccion_domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jButton19)
+                .addGap(85, 85, 85))
+        );
+
+        jd_agregarConexion_mapeo.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                jd_agregarConexion_mapeoWindowOpened(evt);
+            }
+        });
+
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("Destino");
+
+        jLabel40.setText("Agregar Conexion");
+
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setText("Origen");
+
+        jButton24.setText("Conectar");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel36.setText("Distancia");
+
+        javax.swing.GroupLayout jd_agregarConexion_mapeoLayout = new javax.swing.GroupLayout(jd_agregarConexion_mapeo.getContentPane());
+        jd_agregarConexion_mapeo.getContentPane().setLayout(jd_agregarConexion_mapeoLayout);
+        jd_agregarConexion_mapeoLayout.setHorizontalGroup(
+            jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                        .addComponent(jLabel40)
+                        .addGap(211, 211, 211))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                        .addComponent(cb_conexionInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(170, 170, 170)
+                        .addComponent(cb_conexionFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
+            .addGroup(jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                .addGroup(jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jButton24, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(tf_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_agregarConexion_mapeoLayout.setVerticalGroup(
+            jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarConexion_mapeoLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel40)
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_conexionInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_conexionFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(jd_agregarConexion_mapeoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(tf_distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(jButton24)
+                .addGap(35, 35, 35))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -498,65 +808,71 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Simulador de Hospitales");
 
-        jButton1.setText("Hospitales");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4/estruc/hospital_318-115717.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Paramedicos");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4/estruc/paramedico_318-117970.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Ambulancias");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto4/estruc/vista-lateral-ambulancia_318-77652.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Simulacion");
+        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Christian\\Pictures\\mapeo.png")); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addGap(18, 18, 18)
+                        .addGap(231, 231, 231)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton1)
+                        .addGap(61, 61, 61)
+                        .addComponent(jButton2)
+                        .addGap(75, 75, 75)
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(31, 31, 31))
+                        .addGap(191, 191, 191)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(66, 66, 66)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -623,16 +939,34 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        adminParamedico.getListaParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
-                ,Integer.parseInt(this.tf_edad_paramedico.getText())
-                ,Integer.parseInt(this.tf_identidad_paramedico.getText())
-                ,(Ranking)this.cb_ranking_hospital.getSelectedItem()));
-        this.tf_nombre_paramedico.setText("");
-        this.tf_edad_paramedico.setText("");
-        this.tf_identidad_paramedico.setText("");
-        this.cb_ranking_paramedico.setSelectedIndex(0);
-        JOptionPane.showMessageDialog(this, "El paramedico se ha agregado. ");
-        this.jd_agregar_paramedicos.dispose();
+        int posicion=this.cb_agregarHospital_paramedico.getSelectedIndex();
+        if (adminHospital.getListaHospitales().get(posicion).getParamedicos().size()<
+                adminHospital.getListaHospitales().get(posicion).getCapParamedicos()) {
+                adminParamedico.getListaParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
+                    ,Integer.parseInt(this.tf_edad_paramedico.getText())
+                    ,Integer.parseInt(this.tf_identidad_paramedico.getText())
+                    ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
+                    ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
+            String nombreHospital = this.cb_agregarHospital_paramedico.getSelectedItem().toString();
+            for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+                if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
+                    adminHospital.getListaHospitales().get(i).getParamedicos().add(new Paramedico(this.tf_nombre_paramedico.getText()
+                    ,Integer.parseInt(this.tf_edad_paramedico.getText())
+                    ,Integer.parseInt(this.tf_identidad_paramedico.getText())
+                    ,(Ranking)this.cb_ranking_hospital.getSelectedItem()
+                    ,this.cb_agregarHospital_paramedico.getSelectedItem().toString()));
+                }
+            }
+            this.tf_nombre_paramedico.setText("");
+            this.tf_edad_paramedico.setText("");
+            this.tf_identidad_paramedico.setText("");
+            this.cb_ranking_paramedico.setSelectedIndex(0);
+            JOptionPane.showMessageDialog(this, "El paramedico se ha agregado. ");
+            this.jd_agregar_paramedicos.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Se ha llegado al limite de paramedicos. ");
+            this.jd_agregar_paramedicos.dispose();
+        } 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -657,14 +991,33 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        adminAmbulancia.getListaAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
-                ,Integer.parseInt(this.tf_año_ambulancia.getText())
-                ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())));
-        this.tf_numero_ambulancia.setText("");
-        this.tf_año_ambulancia.setText("");
-        this.tf_velocidadMax_ambulancia.setText("");
-        JOptionPane.showMessageDialog(this, "La ambulancia se ha agregado. ");
-        this.jd_agregar_ambulancias.dispose();
+        int posicion=this.cb_agregarHospital_ambulancia.getSelectedIndex();
+        if ((!adminHospital.getListaHospitales().get(posicion).getAmbulancias().isEmpty()&&
+                adminHospital.getListaHospitales().get(posicion).getAmbulancias().size()<=
+                adminHospital.getListaHospitales().get(posicion).getCapAmbulancias())
+                ||adminHospital.getListaHospitales().get(posicion).getAmbulancias().isEmpty()) {
+                adminAmbulancia.getListaAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
+                    ,Integer.parseInt(this.tf_año_ambulancia.getText())
+                    ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
+                    ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
+            String nombreHospital = this.cb_agregarHospital_ambulancia.getSelectedItem().toString();
+            for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+                if (adminHospital.getListaHospitales().get(i).getNombre().equalsIgnoreCase(nombreHospital)) {
+                    adminHospital.getListaHospitales().get(i).getAmbulancias().add(new Ambulancia(Integer.parseInt(this.tf_numero_ambulancia.getText())
+                    ,Integer.parseInt(this.tf_año_ambulancia.getText())
+                    ,Integer.parseInt(this.tf_velocidadMax_ambulancia.getText())
+                    ,this.cb_agregarHospital_ambulancia.getSelectedItem().toString()));
+                }
+            }
+            this.tf_numero_ambulancia.setText("");
+            this.tf_año_ambulancia.setText("");
+            this.tf_velocidadMax_ambulancia.setText("");
+            JOptionPane.showMessageDialog(this, "La ambulancia se ha agregado. ");
+            this.jd_agregar_ambulancias.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Se ha llegado al limite de ambulancias. ");
+            this.jd_agregar_ambulancias.dispose();
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -706,6 +1059,83 @@ public class Principal extends javax.swing.JFrame {
         this.jd_ambulancia.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.jd_mapeo.setModal(true);
+        this.jd_mapeo.pack();
+        this.jd_mapeo.setLocationRelativeTo(this);
+        this.jd_mapeo.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jd_agregarHospital_mapeoWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_agregarHospital_mapeoWindowOpened
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_agregarHospital_mapeo.getModel();
+        for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+            modelo.addElement(adminHospital.getListaHospitales().get(i).getNombre());
+            cb_agregarHospital_mapeo.setModel(modelo);
+        }
+    }//GEN-LAST:event_jd_agregarHospital_mapeoWindowOpened
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String hospital = this.cb_agregarHospital_mapeo.getSelectedItem().toString();
+        Node nodo = graph.addNode(hospital);
+        nodo.addAttribute("ui.label", hospital);
+        this.jd_agregarHospital_mapeo.dispose();
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        Domicilio domicilio = new Domicilio(this.tf_nombre_domicilio.getText(), this.tf_direccion_domicilio.getText());
+        listaDomicilios.add(domicilio);
+        Node nodo = graph.addNode(domicilio.toString());
+        nodo.addAttribute("ui.label", domicilio.toString());
+        this.tf_nombre_domicilio.setText("");
+        this.tf_direccion_domicilio.setText("");
+        this.jd_agregarDomicilio_mapeo.dispose();
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        this.jd_agregarHospital_mapeo.setModal(true);
+        this.jd_agregarHospital_mapeo.pack();
+        this.jd_agregarHospital_mapeo.setLocationRelativeTo(this);
+        this.jd_agregarHospital_mapeo.setVisible(true);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        this.jd_agregarDomicilio_mapeo.setModal(true);
+        this.jd_agregarDomicilio_mapeo.pack();
+        this.jd_agregarDomicilio_mapeo.setLocationRelativeTo(this);
+        this.jd_agregarDomicilio_mapeo.setVisible(true);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        this.jd_agregarConexion_mapeo.setModal(true);
+        this.jd_agregarConexion_mapeo.pack();
+        this.jd_agregarConexion_mapeo.setLocationRelativeTo(this);
+        this.jd_agregarConexion_mapeo.setVisible(true);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jd_agregarConexion_mapeoWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_agregarConexion_mapeoWindowOpened
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel) cb_conexionInicial.getModel();
+        for (int i = 0; i < adminHospital.getListaHospitales().size(); i++) {
+            modelo.addElement(adminHospital.getListaHospitales().get(i).getNombre());
+            cb_conexionInicial.setModel(modelo);
+        }
+        DefaultComboBoxModel modelo2=(DefaultComboBoxModel) cb_conexionFinal.getModel();
+        for (int i = 0; i < listaDomicilios.size(); i++) {
+            modelo2.addElement(listaDomicilios.get(i).getNombre());
+            cb_conexionFinal.setModel(modelo2);
+        }
+    }//GEN-LAST:event_jd_agregarConexion_mapeoWindowOpened
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        Object conexionInicial = this.cb_conexionInicial.getSelectedItem();
+        Object conexionFinal = this.cb_conexionFinal.getSelectedItem();
+        String distancia = this.tf_distancia.getText();
+        Edge edge = graph.addEdge(conexionInicial.toString() + "-" + conexionFinal.toString()
+            , conexionInicial.toString(), conexionFinal.toString());
+        edge.addAttribute("ui.label", distancia);
+        this.tf_distancia.setText("");
+        this.jd_agregarConexion_mapeo.dispose();
+    }//GEN-LAST:event_jButton24ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -743,6 +1173,10 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cb_agregarHospital_ambulancia;
+    private javax.swing.JComboBox cb_agregarHospital_mapeo;
+    private javax.swing.JComboBox cb_agregarHospital_paramedico;
+    private javax.swing.JComboBox<String> cb_conexionFinal;
+    private javax.swing.JComboBox<String> cb_conexionInicial;
     private javax.swing.JComboBox cb_elim_ambulancia;
     private javax.swing.JComboBox cb_elim_hospital;
     private javax.swing.JComboBox cb_ranking_hospital;
@@ -752,7 +1186,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -772,13 +1213,26 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JDialog jd_agregarConexion_mapeo;
+    private javax.swing.JDialog jd_agregarDomicilio_mapeo;
+    private javax.swing.JDialog jd_agregarHospital_mapeo;
     private javax.swing.JDialog jd_agregar_ambulancias;
     private javax.swing.JDialog jd_agregar_hospitales;
     private javax.swing.JDialog jd_agregar_paramedicos;
@@ -786,18 +1240,24 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_eliminar_ambulancias;
     private javax.swing.JDialog jd_eliminar_hospitales;
     private javax.swing.JDialog jd_hospital;
+    private javax.swing.JDialog jd_mapeo;
+    private javax.swing.JPanel jp_mapeo;
     private javax.swing.JTextField tf_año_ambulancia;
+    private javax.swing.JTextField tf_direccion_domicilio;
     private javax.swing.JTextField tf_direccion_hospital;
+    private javax.swing.JTextField tf_distancia;
     private javax.swing.JTextField tf_edad_paramedico;
     private javax.swing.JTextField tf_identidad_paramedico;
     private javax.swing.JTextField tf_maxAmbulancias_hospital;
     private javax.swing.JTextField tf_maxParamedicos_hospital;
+    private javax.swing.JTextField tf_nombre_domicilio;
     private javax.swing.JTextField tf_nombre_hospital;
     private javax.swing.JTextField tf_nombre_paramedico;
     private javax.swing.JTextField tf_numero_ambulancia;
     private javax.swing.JTextField tf_velocidadMax_ambulancia;
     // End of variables declaration//GEN-END:variables
-ArrayList<Hospital>hospitales=new ArrayList();
+Graph graph = new MultiGraph("Graffo");
+ArrayList<Domicilio> listaDomicilios= new ArrayList();
 administrarHospitales adminHospital= new administrarHospitales("./hospitales.txt");
 administrarParamedicos adminParamedico= new administrarParamedicos("./paramedicos.txt");
 administrarAmbulancias adminAmbulancia= new administrarAmbulancias("./ambulancias.txt");

@@ -14,11 +14,12 @@ public class Paramedico implements Comparable<Paramedico> {
     public Paramedico() {
     }
 
-    public Paramedico(String nombre, int edad, int identidad, Ranking ranking) {
+    public Paramedico(String nombre, int edad, int identidad, Ranking ranking, String hospital) {
         this.nombre = nombre;
         this.edad = edad;
         this.identidad = identidad;
         this.ranking = ranking;
+        this.hospital = hospital;
     }
 
     public String getNombre() {
@@ -63,7 +64,15 @@ public class Paramedico implements Comparable<Paramedico> {
         return this.ranking.compareTo(otro.ranking);	 
     }
 
-    public String nombre;
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+    
+    public String nombre, hospital;
     public int edad, identidad; 
     public Ranking ranking;
 }
